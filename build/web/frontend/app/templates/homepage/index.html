@@ -1,0 +1,94 @@
+<link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+    <a class="navbar-brand" href="#/"><img class="img-fluid" id="navPokeball" src="img/PokeBall.png" alt="Home"></a>
+    <ul class="nav navbar-nav pull-right">
+      <li class="nav-item">
+        <a class="nav-link" ng-show="isAdmin()" ng-click="signOut()">Sign out</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ng-hide="isAdmin()" ng-click="go('auth')">Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row header">
+      <div class="col-xs-12 text-xs-center">
+        <h1 class="text-uppercase text-xs-center" id="headerTitle"><strong>pokedex</strong></h1>
+      </div>
+      <div class="col-xs-12 text-xs-center">
+        <a class="btn btn-outline-danger" href="#bodyTitle" id="headerButton" role="button">See all Pokemons</a>
+      </div>
+    </div>
+
+
+    <div class="row bodybg">
+      <!-- Title -->
+      <div class="col-xs-12 text-xs-center">
+        <span class="anchor" id="bodyTitle"></span>
+        <h1 class="text-uppercase title"><strong>Pokemons</strong></h1>
+      </div>
+      <div ng-show="isAdmin()" class="col-xs-12 text-xs-center col-sm-12 text-sm-center col-md-6 text-md-left col-lg-6 text-lg-left mst">
+        <a class="btn btn-outline-secondary " role="button" ng-click="go('admin/pokeAdd')">Add Pokemon</a>
+      </div>
+      <div ng-show="isAdmin()" class="col-xs-12 text-xs-left col-sm-12 text-sm-left col-md-6 text-md-right col-lg-6 text-lg-right mst">
+        <div class="form-group row">
+          <label for="searchType" class="col-xs-2 col-form-label">Search</label>
+          <div class="col-xs-10">
+            <input class="form-control" type="text" value="" id="searchType" ng-model="search.id">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <pre>
+            <pre>pokemons = {{pokemons | json}}</pre>
+          </pre>
+        </div>
+      </div> -->
+      <!-- Pokemons -->
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3" ng-repeat="pokemon in pokemons | filter:search">
+        <div class="card blend">
+          <div class="card-block">
+            <h4 class="col-xs-10 card-title no-padding">{{pokemon.name}}</h4>
+            <h5 class="col-xs-2 text-muted text-xs-right no-padding">#{{pokemon.id}}</h5>
+            <h6 class="col-xs-12 card-subtitle text-muted no-padding">Types: <span ng-repeat="type in pokemon.types">{{type}}&nbsp</span></h6>
+          </div>
+          <div class="text-xs-center">
+            <img class="pokemon img-fluid" ng-src="{{pokemon.photo}}" alt="Card image">
+          </div>
+
+          <div class="card-block">
+            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> -->
+						<div class="text-xs-center">
+              <!-- <a ng-click="go(pokemon.id)" class="card-link">More</a> -->
+              <a class="btn btn-primary btn-outline-secondary" ng-click="go('pokemon/' + pokemon.id)" role="button">More</a>
+						</div>
+          </div>
+    		</div>
+      </div>
+
+
+
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+</div>
+<script src="js/fittext.js?random=<?php echo uniqid(); ?>"></script>
+<script type="text/javascript" src="js/manipulator.js">
+
+
+
+
+  // $(document).ready(function() {
+  //   $(window).resize(function() {
+  //       var bodyheight = $(window).height()/100 * 24;
+  //       $("div.header > div > h2").css("padding-top", bodyheight);
+  //   }).resize();
+  // });
+
+</script>

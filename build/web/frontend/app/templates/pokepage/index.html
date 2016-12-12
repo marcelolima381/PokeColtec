@@ -1,0 +1,144 @@
+<link rel="stylesheet" type="text/css" href="css/pokepage.css">
+
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+    <a class="navbar-brand" href="#/"><img class="img-fluid" id="navPokeball" src="img/PokeBall.png" alt="Home"></a>
+    <ul class="nav navbar-nav pull-right">
+      <li class="nav-item active">
+        <a class="nav-link" ng-show="isAdmin()" ng-click="signOut()">Sign out</a>
+        <a class="nav-link" ng-hide="isAdmin()" ng-click="go('auth')">Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-xs-center title">
+        <h1 class="text-capitalize">{{pokemon.name}}<a ng-show="isAdmin()" ng-click="go('admin/pokeEdit/'+pokemon.id)"><i class="fa fa-cog" aria-hidden="true"></i></a></h1>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Pokemon Image -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-xs-center text-sm-center text-md-right text-lg-right">
+        <div class="responsive-container blend">
+            <div class="dummy"></div>
+
+            <div class="img-container">
+                <div class="centerer"></div>
+                <img class="img-fluid" ng-src="{{pokemon.photo}}" alt="Pokemon"/>
+            </div>
+        </div>
+
+      </div>
+      <!-- ./Pokemon Image -->
+      <!-- Pokemon Status -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 status">
+          <div class="col-xs-12 text-xs-center text-sm-center text-md-left text-lg-left">
+            <h2 class="text-capitalize">height ({{pokemon.height}})</h2>
+          </div>
+          <div class="col-xs-12 col-lg-9">
+            <progress ng-class="{'progress-success': pokemon.height >= 0 && pokemon.height <= 25, 'progress-info': pokemon.height >= 26 && pokemon.height <= 50, 'progress-warning': pokemon.height >= 51 && pokemon.height <= 75, 'progress-danger': pokemon.height >= 76 && pokemon.height <= 100}" class="progress" value="{{pokemon.height}}" max="100"></progress>
+          </div>
+          <div class="col-xs-12 text-xs-center text-sm-center text-md-left text-lg-left">
+            <h2 class="text-capitalize">weight ({{pokemon.weight}})</h2>
+          </div>
+          <div class="col-xs-12 col-lg-9">
+            <progress ng-class="{'progress-success': pokemon.weight >= 0 && pokemon.weight <= 25, 'progress-info': pokemon.weight >= 26 && pokemon.weight <= 50, 'progress-warning': pokemon.weight >= 51 && pokemon.weight <= 75, 'progress-danger': pokemon.weight >= 76 && pokemon.weight <= 100}" class="progress" value="{{pokemon.weight}}" max="100"></progress>
+          </div>
+          <div class="col-xs-12 text-xs-center text-sm-center text-md-left text-lg-left">
+            <h2 class="text-capitalize">hp ({{pokemon.hp}})</h2>
+          </div>
+          <div class="col-xs-12 col-lg-9">
+            <progress ng-class="{'progress-success': pokemon.hp >= 0 && pokemon.hp <= 25, 'progress-info': pokemon.hp >= 26 && pokemon.hp <= 50, 'progress-warning': pokemon.hp >= 51 && pokemon.hp <= 75, 'progress-danger': pokemon.hp >= 76 && pokemon.hp <= 100}" class="progress" value="{{pokemon.hp}}" max="100"></progress>
+          </div>
+          <div class="col-xs-12 text-xs-center text-sm-center text-md-left text-lg-left">
+            <h2 class="text-capitalize">attack ({{pokemon.attack}})</h2>
+          </div>
+          <div class="col-xs-12 col-lg-9">
+            <progress ng-class="{'progress-success': pokemon.attack >= 0 && pokemon.attack <= 25, 'progress-info': pokemon.attack >= 26 && pokemon.attack <= 50, 'progress-warning': pokemon.attack >= 51 && pokemon.attack <= 75, 'progress-danger': pokemon.attack >= 76 && pokemon.attack <= 100}" class="progress" value="{{pokemon.attack}}" max="100"></progress>
+          </div>
+          <div class="col-xs-12 text-xs-center text-sm-center text-md-left text-lg-left">
+            <h2 class="text-capitalize">defense ({{pokemon.defense}})</h2>
+          </div>
+          <div class="col-xs-12 col-lg-9">
+            <progress ng-class="{'progress-success': pokemon.defense >= 0 && pokemon.defense <= 25, 'progress-info': pokemon.defense >= 26 && pokemon.defense <= 50, 'progress-warning': pokemon.defense >= 51 && pokemon.defense <= 75, 'progress-danger': pokemon.defense >= 76 && pokemon.defense <= 100}" class="progress" value="{{pokemon.defense}}" max="100"></progress>
+          </div>
+      </div>
+      <!-- ./Pokemon Status -->
+    </div>
+    <div class="row">
+      <!-- Pokemon Types -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 type">
+        <div class="col-xs-12 text-xs-center">
+          <h1 class="text-capitalize">types</h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 type" ng-repeat="type in pokemon.types">
+          <div ng-class="{'card-normal' : type == 'normal', 'card-fire' : type == 'fire', 'card-water' : type == 'water', 'card-electric' : type == 'electric', 'card-grass' : type == 'grass', 'card-ice' : type == 'ice', 'card-fighting' : type == 'fighting', 'card-poison' : type == 'poison', 'card-ground' : type == 'ground', 'card-flying' : type == 'flying', 'card-psychic' : type == 'psychic', 'card-bug' : type == 'bug', 'card-bug' : type == 'bug', 'card-rock' : type == 'rock', 'card-ghost' : type == 'ghost', 'card-dragon' : type == 'dragon', 'card-dark' : type == 'dark', 'card-steel' : type == 'steel', 'card-fairy' : type == 'fairy'}" class="card card-inverse text-xs-center">
+            <div class="card-block">
+              <blockquote class="card-blockquote">
+                <h3 class="text-uppercase">{{type}}</h3>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./Pokemon Types -->
+      <!-- Pokemon Habilities -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 skills">
+        <div class="col-xs-12 text-xs-center">
+          <h1 class="text-capitalize">abilities</h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 type" ng-repeat="abilitie in pokemon.abilities">
+          <div class="card card-inverse text-xs-center" style="background-color: #333; border-color: #333;">
+            <div class="card-block">
+              <blockquote class="card-blockquote">
+                <h3 class="text-uppercase">{{abilitie}}</h3>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./Pokemon Habilities -->
+      <!-- Pokemon Evolutions -->
+        <div class="col-xs-12 text-xs-center evolution">
+          <h1 class="text-capitalize">evolutions</h1>
+        </div>
+        <div class="col-xs-12 text-xs-center col-sm-12 text-sm-center col-md-6 text-md-center col-lg-6 text-lg-center" ng-repeat="evolution in pokemon.evolutions">
+          <img ng-src="Pokemons/{{evolution}}.jpg" alt="Evolution" />
+        </div>
+      <!-- ./Pokemon Evolutions -->
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-xs-center">
+        <h1 class="text-capitalize">effectiveness</h1>
+        <img class="blend" src="img/typechart.png" alt="" />
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <pre>
+          <pre>user = {{pokemon | json}}</pre>
+        </pre>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+</div>
+
+<!-- <script type="text/javascript" src="js/manipulator.js">
+
+
+
+
+  // $(document).ready(function() {
+  //   $(window).resize(function() {
+  //       var bodyheight = $(window).height()/100 * 24;
+  //       $("div.header > div > h2").css("padding-top", bodyheight);
+  //   }).resize();
+  // });
+
+</script> -->

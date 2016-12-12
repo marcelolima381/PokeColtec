@@ -1,0 +1,251 @@
+/*CLASSES*/
+
+  .fa {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .container-fluid {
+    margin-top: 10px;
+  }
+
+  .anchor{
+    display:block;
+    height:63px; /* this is the height of your header */
+    margin-top:-63px; /* this is again negative value of the height of your header */
+    visibility:hidden;
+  }
+
+  .no-padding {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .title {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+
+  .no-break {
+    margin: 0;
+  }
+
+  .type, .skills, .evolution {
+    margin-top: 4vw;
+  }
+
+  .responsive-container {
+    position: relative;
+    width: 100%;
+    /*border: 1px solid black;*/
+  }
+
+  .dummy {
+      padding-top: 50vh;
+  }
+
+  .img-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      text-align:center; /* Align center inline elements */
+      font: 0/0 a;
+  }
+
+  .img-container .centerer {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+  }
+
+  .card-normal {
+    background-color: #A1975C;
+    border-color: #A1975C;
+  }
+
+  .card-fire {
+    background-color: #EA701E;
+    border-color: #EA701E;
+  }
+
+  .card-water {
+    background-color: #5D7FC3;
+    border-color: #5D7FC3;
+  }
+
+  .card-electric {
+    background-color: #F6C020;
+    border-color: #F6C020;
+  }
+
+  .card-grass {
+    background-color: #72B53C;
+    border-color: #72B53C;
+  }
+
+  .card-ice {
+    background-color: #84C4AA;
+    border-color: #84C4AA;
+  }
+
+  .card-fighting {
+    background-color: #923A92;
+    border-color: #923A92;
+  }
+
+  .card-poison {
+    background-color: #923A92;
+    border-color: #923A92;
+  }
+
+  .card-ground {
+    background-color: #923A92;
+    border-color: #923A92;
+  }
+
+  .card-flying {
+    background-color: #B82B20;
+    border-color: #B82B20;
+  }
+
+  .card-psychic {
+    background-color: #F84567;
+    border-color: #F84567;
+  }
+
+  .card-bug {
+    background-color: #A0A419;
+    border-color: #A0A419;
+  }
+
+  .card-rock {
+    background-color: #AE8E2B;
+    border-color: #AE8E2B;
+  }
+
+  .card-ghost {
+    background-color: #684D74;
+    border-color: #684D74;
+  }
+
+  .card-dragon {
+    background-color: #682AC9;
+    border-color: #682AC9;
+  }
+
+  .card-dark {
+    background-color: #695244;
+    border-color: #695244;
+  }
+
+  .card-steel {
+    background-color: #B1B1CB;
+    border-color: #B1B1CB;
+  }
+
+  .card-fairy {
+    background-color: #E58CE5;
+    border-color: #E58CE5;
+  }
+
+
+  .card-normal, .card-fire, .card-water, .card-electric, .card-grass, .card-ice, .card-fighting, .card-poison, .card-ground, .card-flying, .card-psychic, .card-bug, .card-rock, .card-ghost, .card-dragon, .card-dark, .card-steel, .card-fairy, .card-header, .card-footer {
+    background-color: auto;
+  }
+
+  .blend {
+    mix-blend-mode: multiply;
+  }
+
+/*IDs*/
+
+  #navPokeball {
+    max-width:35px;
+    padding-right: 3px;
+  }
+
+/*SELECTORS & MIXINS*/
+
+  body { padding-top: 50px; background-image: url("../img/geometry2.png"); }
+
+  a {
+    cursor: pointer;;
+  }
+
+  h1.responsive, span.responsive-h1 {
+    font-size: 10vw !important;
+  }
+
+  h2.responsive, span.responsive-h2 {
+    font-size: 8vw !important;
+  }
+
+  h3.responsive, span.responsive-h3 {
+    font-size: 6.5vw !important;
+  }
+
+  h4.responsive, span.responsive-h4 {
+    font-size: 4vw !important;
+  }
+
+  h5.responsive, span.responsive-h5 {
+    font-size: 2vw !important;
+  }
+
+  h6.responsive, span.responsive-h6 {
+    font-size: 1vw !important;
+  }
+
+  .img-container img, .img-container .col-xs-12 {
+      vertical-align: middle;
+      display: inline-block;
+      max-height: 100%;  /* <-- Set maximum height to 100% of its parent */
+      max-width: 100%;   /* <-- Set maximum width to 100% of its parent */
+  }
+
+
+/*@media*/
+
+/*@media (max-width: 768px) {
+  .navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  }
+}*/
+
+@media(max-width:767px){
+  h2 {
+    font-size: 1.2rem;
+  }
+  .status {
+    /*margin-top: 2vw;*/
+  }
+}
+@media(min-width:768px){
+  h2 {
+    font-size: 1.2rem;
+  }
+  .status {
+      /*margin-top: 10vw;*/
+  }
+}
+@media(min-width:992px){
+  h2 {
+    font-size: 1.2rem;
+  }
+  .status {
+      /*margin-top: 10vw;*/
+  }
+}
+@media(min-width:1200px){
+  h2 {
+    font-size: 1.3rem;
+  }
+  .status {
+      /*margin-top: 10vw;*/
+  }
+}

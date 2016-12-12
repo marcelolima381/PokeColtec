@@ -1,0 +1,120 @@
+/*CLASSES*/
+
+  .bg-faded {
+    background-color: rgba(247, 247, 249, 0);
+  }
+
+  .bodybg {
+    background-image: url("../img/geometry2.png");
+  }
+
+  .header {
+    background: url("../img/Pokemon-Wallpaper.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .anchor{
+    display:block;
+    height:63px; /* this is the height of your header */
+    margin-top:-63px; /* this is again negative value of the height of your header */
+    visibility:hidden;
+  }
+
+  .no-padding {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .pokemon {
+    max-height: 150px;
+  }
+
+  .blend {
+    mix-blend-mode: multiply;
+  }
+
+  .filterComponent {
+    margin-bottom: 0.5rem;
+  }
+
+/*IDs*/
+
+  #navPokeball {
+    max-width:35px;
+    padding-right: 3px;
+  }
+
+  #headerPokeball {
+    height: 8vw;
+    margin-left: 1vw;
+  }
+
+/*SELECTORS & MIXINS*/
+
+  a {
+    cursor: pointer;;
+  }
+
+  div.header {
+    height:100vh;
+  }
+
+  h1.responsive {
+    font-size: 10vw !important;
+  }
+
+  h2.responsive {
+    font-size: 8vw !important;
+  }
+
+  h3.responsive {
+    font-size: 6.5vw !important;
+  }
+
+  h4.responsive {
+    font-size: 4vw !important;
+  }
+
+  h5.responsive {
+    font-size: 2vw !important;
+  }
+
+  h6.responsive {
+    font-size: 1vw !important;
+  }
+
+  div.bodybg > div:first-child {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+  }
+
+
+/*@media*/
+@media(max-width:767px){
+  .mst {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media(min-width:768px){
+
+}
+
+@media(min-width:992px){
+
+}
+
+@media(min-width:1200px){
+  .list-inline-item {
+    padding-left: 0.1rem;
+  }
+
+  .title {
+    margin-bottom: 3vw;
+  }
+
+}

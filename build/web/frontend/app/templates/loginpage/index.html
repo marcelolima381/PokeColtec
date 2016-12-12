@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="css/loginpage.css">
+
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+    <a class="navbar-brand" href="#/"><img class="img-fluid" id="navPokeball" src="img/PokeBall.png" alt="Home"></a>
+    <ul class="nav navbar-nav pull-right">
+      <li class="nav-item active">
+        <a class="nav-link" href="#/">Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-xs-center title">
+        <h1 class="text-capitalize">login</h1>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-xs-center col-sm-12 text-sm-center col-md-6 offset-md-3 text-md-center col-lg-6 offset-lg-3 text-lg-center form">
+            <form name="loginAdminForm" ng-submit="submitLoginForm(loginAdminForm.$valid)" novalidate>
+                <!-- nome -->
+                <div class="form-group">
+                    <label>Admin's name</label>
+                    <input type="text" name="name" class="form-control" ng-model="admin.name" required>
+                </div>
+                <!-- senha -->
+                <div class="form-group">
+                    <label>Admin's password</label>
+                    <input type="password" name="password" class="form-control" ng-model="admin.password" required>
+                </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <pre>
+          <pre>admin = {{admin | json}}</pre>
+        </pre>
+      </div>
+    </div>
+
+</div>
+
+<!-- <script type="text/javascript" src="js/manipulator.js">
+
+
+
+
+  // $(document).ready(function() {
+  //   $(window).resize(function() {
+  //       var bodyheight = $(window).height()/100 * 24;
+  //       $("div.header > div > h2").css("padding-top", bodyheight);
+  //   }).resize();
+  // });
+
+</script> -->

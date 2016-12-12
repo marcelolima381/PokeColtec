@@ -1,0 +1,150 @@
+<link rel="stylesheet" type="text/css" href="css/loginpage.css">
+
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+    <a class="navbar-brand" href="#/"><img class="img-fluid" id="navPokeball" src="img/PokeBall.png" alt="Home"></a>
+    <ul class="nav navbar-nav pull-right">
+      <li class="nav-item active">
+        <a class="nav-link" ng-show="isAdmin()" ng-click="signOut()">Sign out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-xs-center title">
+        <h1 class="text-capitalize">add pokemon</h1>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-xs-center col-sm-12 text-sm-center col-md-6 offset-md-3 text-md-center col-lg-6 offset-lg-3 text-lg-center form">
+            <form name="addPokemonForm" ng-submit="submitAddForm(addPokemonForm.$valid)" novalidate>
+              <!-- id -->
+              <div class="form-group">
+                  <label><strong>ID</strong></label>
+                  <input type="text" name="name" class="form-control" ng-model="pokemon.id" required>
+              </div>
+                <!-- nome -->
+                <div class="form-group">
+                    <label><strong>Name</strong></label>
+                    <input type="text" name="name" class="form-control" ng-model="pokemon.name" required>
+                </div>
+                <!-- altura -->
+                <div class="form-group">
+                    <label><strong>Height</strong></label>
+                    <input type="text" name="height" class="form-control" ng-model="pokemon.height" required>
+                </div>
+                <!-- peso -->
+                <div class="form-group">
+                    <label><strong>Weight</strong></label>
+                    <input type="text" name="weight" class="form-control" ng-model="pokemon.weight" required>
+                </div>
+                <!-- hp -->
+                <div class="form-group">
+                    <label><strong>HP</strong></label>
+                    <input type="text" name="weight" class="form-control" ng-model="pokemon.hp" required>
+                </div>
+                <!-- attack -->
+                <div class="form-group">
+                    <label><strong>Attack</strong></label>
+                    <input type="text" name="weight" class="form-control" ng-model="pokemon.attack" required>
+                </div>
+                <!-- defense -->
+                <div class="form-group">
+                    <label><strong>Defense</strong></label>
+                    <input type="text" name="weight" class="form-control" ng-model="pokemon.defense" required>
+                </div>
+                <!-- foto url -->
+                <div class="form-group">
+                    <label><strong>Photo URL</strong></label>
+                    <input type="text" name="imgURL" class="form-control" ng-model="pokemon.imgURL" required>
+                </div>
+                <!-- tipos -->
+                <div class="form-check">
+                    <!-- <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input">
+
+                    </label> -->
+                    <div class="form-group">
+                        <label><strong>Types</strong></label>
+                    </div>
+                    <label class="col-xs-6 text-xs-center col-sm-3 text-sm-center col-md-4 text-md-center col-lg-3 text-lg-center custom-checkbox" ng-repeat="pokemonType in types">
+                      <input class="custom-control-input"
+                        type="checkbox"
+                        name="selectedTypes[]"
+                        value="{{pokemonType}}"
+                        ng-checked="selection.indexOf(pokemonType) > -1"
+                        ng-click="toggleSelection(pokemonType)"
+                      ></input><span class="custom-control-indicator"></span><span class="custom-control-description text-capitalize">{{pokemonType}}</span>
+                    </label>
+                </div>
+                <div class="form-group clearH">
+                    <label><strong>Abilities</strong></label>
+                    <label ng-hide="pokemon.abilities.length">(You have no abilities)</label>
+                </div>
+                <!-- habilidade 1 -->
+                <!-- <div class="form-group">
+                  <label>Select Nº of abilities</label>
+                  <select class="custom-select" ng-model="nAbilitieSelected">
+                    <option selected>Select...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div> -->
+                <div class="form-group" ng-repeat="abilitie in pokemon.abilities track by $index">
+                    <label>Abilitie {{$index+1}}</label>
+                    <input type="text" name="hability" class="form-control" ng-model="abilitie" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Add Abilitie</label>
+                    <input type="text" name="hability" class="form-control" ng-model="singleAbilitie">
+                </div>
+                <div class="form-group">
+                  <a class="btn btn-secondary" ng-click="addAbilitie()" role="button" ng-show="singleAbilitie.length">Add abilitie</a>
+                </div>
+                <!-- habilidade 2 -->
+                <!-- <div class="form-group">
+                    <label>Habilidade 2</label>
+                    <input type="text" name="hability2" class="form-control" ng-model="pokemon.abilities[1]" required>
+                </div> -->
+                <!-- escolher pokemon -->
+                <div class="form-group">
+                    <label><strong>Pokemon evolution ID</strong></label>
+                    <input type="text" name="evolution" class="form-control" ng-model="pokemon.evolution" required>
+                </div>
+
+                <button type="submit" class="btn btn-secondary" ng-disabled="addPokemonForm.$invalid">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <pre>
+          <pre>pokemon = {{pokemon | json}}</pre>
+        </pre>
+      </div>
+    </div>
+
+</div>
+
+<!-- <script type="text/javascript" src="js/manipulator.js">
+
+
+
+
+  // $(document).ready(function() {
+  //   $(window).resize(function() {
+  //       var bodyheight = $(window).height()/100 * 24;
+  //       $("div.header > div > h2").css("padding-top", bodyheight);
+  //   }).resize();
+  // });
+
+</script> -->
